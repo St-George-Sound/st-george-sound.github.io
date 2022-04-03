@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import tw, {styled} from "twin.macro";
-
-import firstFrame from "../img/first_frame.jpg";
-import videoSmall from "../img/background_480.mov";
+import React, { useState } from 'react';
+import tw, { styled } from "twin.macro";
 import videoLarge from "../img/background_1080.mov";
+import videoSmall from "../img/background_480.mov";
+import firstFrame from "../img/first_frame.jpg";
+
 
 const VideoContainer = tw.div`
     relative overflow-hidden w-full h-full

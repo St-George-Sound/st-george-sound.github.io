@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Scene } from "react-scrollmagic";
+import { isMobile } from "react-device-detect";
 import { Tween } from "react-gsap";
-import tw, {styled} from "twin.macro";
-import { isSafari, isMobile } from "react-device-detect";
-import {ReactComponent as AnimatedWordmark} from "../resources/Squarer_animated.svg";
-import {ReactComponent as Wordmark} from "../resources/Squarer.svg";
+import { Scene } from "react-scrollmagic";
+import tw, { styled } from "twin.macro";
+import { ReactComponent as Wordmark } from "../resources/Squarer.svg";
+import AnimatedLogo from "./AnimatedLogo";
 import { StyledLink } from "./Utilities";
 
 const LogoContainer = tw.div`
@@ -34,6 +34,10 @@ const LeadStyledLink = styled(StyledLink)(({isVisible}) => [
 const StyledWordmark = tw(Wordmark)`
   transition-all
 `;
+
+const StyledLogo = tw(AnimatedLogo)`
+
+`
 
 const ExtremeTracking = tw.span`tracking-extreme`;
 
@@ -73,12 +77,7 @@ export default function TopMenu({noAnimate}) {
             <TopLink isVisible={noAnimate || progress >= 0.8} href="#">Home</TopLink>
             <TopLink isVisible={noAnimate || progress >= 0.8} href="#">About</TopLink>
             <LogoContainer>
-              {
-                !animationDone && !isSafari ?
-                <AnimatedWordmark />
-                :
-                <StyledWordmark />
-              }
+              <StyledLogo />
               <LeadLine isVisible={!noAnimate && progress <=0.2}>
                 Modern soundtracks & sound design
               </LeadLine>
